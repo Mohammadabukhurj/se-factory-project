@@ -23,4 +23,6 @@ def cities_menu():
     pass
 
 
+
+drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":[" Lando Norris","Jbiel"]}
 running_program()
