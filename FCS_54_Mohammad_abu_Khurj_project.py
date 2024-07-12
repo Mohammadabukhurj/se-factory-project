@@ -47,7 +47,10 @@ def new_driver():
   input_driver_name = input("What is the name of the driver?:")
   input_driver_city = input("What is the start city of the driver?:")
   dictionary_size = str(len(drivers_list)+1)
-  driver_ID = "ID00"+dictionary_size
+  if len(dictionary_size) == 2:
+    driver_ID = "ID0"+dictionary_size
+  else:
+      driver_ID = "ID00"+dictionary_size
   drivers_list[driver_ID]=[input_driver_name,input_driver_city]
 
 
