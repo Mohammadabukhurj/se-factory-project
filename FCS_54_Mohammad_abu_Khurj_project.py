@@ -22,15 +22,14 @@ def drivers_menu():
     print("3. To go back to main menu")
     user_input_drivers = int(input())
     if user_input_drivers == 1:
-        view_drivers()
+        for i in drivers_list:
+            print(i+", "+drivers_list[i][0]+", "+drivers_list[i][1])
     elif user_input_drivers == 2:
         add_driver()
     elif user_input_drivers == 3:
         return
 
-def view_drivers():
-    for i in drivers_list:
-        print(i+", "+drivers_list[i][0]+", "+drivers_list[i][1])
+
 
 def add_driver():
     pass
