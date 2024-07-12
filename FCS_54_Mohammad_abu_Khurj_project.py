@@ -34,10 +34,7 @@ def drivers_menu():
             print("\t")
             print("---------------------")    
         elif user_input_drivers == 2:
-            input_driver_ID = input("What is the ID of the driver?:")
-            input_driver_name = input("What is the name of the driver?:")
-            input_driver_city = input("What is the start city of the driver?:")
-            drivers_list[input_driver_ID]=[input_driver_name,input_driver_city]
+            new_driver()
             print(drivers_list)
         elif user_input_drivers == 3:
             return
@@ -46,8 +43,13 @@ def drivers_menu():
 
 
 
-def add_driver():
-    pass
+def new_driver():
+  input_driver_name = input("What is the name of the driver?:")
+  input_driver_city = input("What is the start city of the driver?:")
+  dictionary_size = str(len(drivers_list)+1)
+  driver_ID = "ID00"+dictionary_size
+  drivers_list[driver_ID]=[input_driver_name,input_driver_city]
+
 
 
 
