@@ -34,9 +34,15 @@ def drivers_menu():
             print("\t")
             print("---------------------")    
         elif user_input_drivers == 2:
-            add_driver()
+            input_driver_ID = input("What is the ID of the driver?:")
+            input_driver_name = input("What is the name of the driver?:")
+            input_driver_city = input("What is the start city of the driver?:")
+            drivers_list[input_driver_ID]=[input_driver_name,input_driver_city]
+            print(drivers_list)
         elif user_input_drivers == 3:
             return
+        else:
+            print("This input is invalid")
 
 
 
