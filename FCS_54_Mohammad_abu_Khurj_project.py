@@ -1,6 +1,7 @@
 def running_program():
     running= True
     while running == True:
+        print("\t")
         print("Hello! Please enter: ")
         print("1. To go to the drivers' menu")
         print("2. To go to the cities' menu")
@@ -63,12 +64,34 @@ def new_driver():
 
 
 def cities_menu():
+    while True:
+        print("\t")
+        print("Hello! Welcome to cities menu! Please enter:")
+        print("1. Show cities")
+        print("2. Print neighbouring cities")
+        print("3. Print drivers delivering to city")
+        print("4. Return to main program")
+        print("\t")
+        user_input_cities = int(input("Your choice for cities menu:"))
+        print("\t")
+        if user_input_cities == 1:
+            show_cities()
+        elif user_input_cities == 2:
+            print_neighbur_cities()
+        elif user_input_cities == 3:
+            print_drivers_delivering_to_city()
+        elif user_input_cities == 4:
+            return
+
+
+def show_cities():
     pass
 
+def print_neighbur_cities():
+    pass
 
-
-
-
+def print_drivers_delivering_to_city():
+    pass
 
 
 drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":[" Lando Norris","Jbiel"]}
