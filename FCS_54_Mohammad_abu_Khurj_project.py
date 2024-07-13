@@ -8,7 +8,7 @@ class Graph:
 
     def print_list(self):
       for node in self.nodes:
-          print(node, "-(neighburs)->", self.adj_list[node])
+          print(node, "-(neighburing)->", self.adj_list[node])
 
     def add_edge(self,a,b):
         self.adj_list[a].append(b)
