@@ -8,7 +8,7 @@ class Graph:
 
     def print_list(self):
       for node in self.nodes:
-          print(node, "-->", self.adj_list[node])
+          print(node, "-(neighburs)->", self.adj_list[node])
 
     def add_edge(self,a,b):
         self.adj_list[a].append(b)
@@ -104,7 +104,7 @@ def cities_menu():
         user_input_cities = int(input("Your choice for cities menu:"))
         print("\t")
         if user_input_cities == 1:
-            show_cities()
+            print(Cities_list)
         elif user_input_cities == 2:
             print_neighbur_cities()
         elif user_input_cities == 3:
@@ -113,11 +113,17 @@ def cities_menu():
             return
 
 
-def show_cities():
-    pass
+
 
 def print_neighbur_cities():
-    pass
+    nodes = ["Saida","Zahle","Beirut","Jbeil","Akkar"]
+    edges = [("Saida","Zahle"),("Beirut","Jbeil"),("Akkar","Jbeil")]
+
+    graph_cities = Graph(nodes)
+    for a,b in edges:
+        graph_cities.add_edge(a,b)
+    graph_cities.print_list()
+    return
 
 def print_drivers_delivering_to_city():
     pass
