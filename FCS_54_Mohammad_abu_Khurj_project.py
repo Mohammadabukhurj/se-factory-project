@@ -1,3 +1,20 @@
+class Graph:
+    def __init__(self,Nodes):
+      self.nodes = Nodes
+      self.adj_list = {}    
+
+      for node in self.nodes:
+          self.adj_list[node] = []
+
+    def print_list(self):
+      for node in self.nodes:
+          print(node, "-->", self.adj_list[node])
+
+    def add_edge(self,a,b):
+        self.adj_list[a].append(b)
+        self.adj_list[b].append(a)
+
+
 def running_program():
     running= True
     while running == True:
