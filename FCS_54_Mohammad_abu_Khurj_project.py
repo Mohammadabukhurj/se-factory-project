@@ -51,6 +51,18 @@ def new_driver():
     input_driver_name = input("What is the name of the driver?:")
     input_driver_city = input("What is the start city of the driver?:")
     dictionary_size = str(len(drivers_list)+1)
+
+    for i in range(len(Cities_list)):
+        if input_driver_city.lower() != Cities_list[i].lower():
+            print("This city doesn't exit in our list, adding this city to the list")
+            Cities_list.append(input_driver_city)
+            break
+        else:
+            print("City already in list")
+            break
+
+    print(Cities_list)
+
     if len(dictionary_size) == 2:
         driver_ID = "ID0"+dictionary_size
     elif len(dictionary_size) == 1:
@@ -93,6 +105,7 @@ def print_neighbur_cities():
 def print_drivers_delivering_to_city():
     pass
 
+Cities_list = ["Saida","Zahle","Beirut","Jbeil","Akkar"]
 
 drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":[" Lando Norris","Jbiel"]}
 running_program()
