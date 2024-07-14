@@ -68,26 +68,27 @@ def new_driver():
     input_driver_name = input("What is the name of the driver?:")
     input_driver_city = input("What is the start city of the driver?:")
     dictionary_size = str(len(drivers_list)+1)
+    if (len(Cities_list) <= 15):
+        for i in range(len(Cities_list)):
+            if input_driver_city.lower() != Cities_list[i].lower():
+                print("This city doesn't exit in our list, adding this city to the list")
+                Cities_list.append(input_driver_city)
+                break
+            else:
+                print("City already in list")
+                break
 
-    for i in range(len(Cities_list)):
-        if input_driver_city.lower() != Cities_list[i].lower():
-            print("This city doesn't exit in our list, adding this city to the list")
-            Cities_list.append(input_driver_city)
-            break
+        print(Cities_list)
+
+        if len(dictionary_size) == 2:
+            driver_ID = "ID0"+dictionary_size
+        elif len(dictionary_size) == 1:
+            driver_ID = "ID00"+dictionary_size
         else:
-            print("City already in list")
-            break
-
-    print(Cities_list)
-
-    if len(dictionary_size) == 2:
-        driver_ID = "ID0"+dictionary_size
-    elif len(dictionary_size) == 1:
-        driver_ID = "ID00"+dictionary_size
+            driver_ID = "ID"+dictionary_size
+        drivers_list[driver_ID]=[input_driver_name,input_driver_city]
     else:
-        driver_ID = "ID"+dictionary_size
-    drivers_list[driver_ID]=[input_driver_name,input_driver_city]
-
+        print("List is full!")
 
 
 
