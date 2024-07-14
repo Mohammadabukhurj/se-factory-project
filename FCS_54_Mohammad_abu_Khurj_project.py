@@ -24,16 +24,20 @@ def running_program():
         print("2. To go to the cities' menu")
         print("3. To exit the system")
         print("\t")
-        user_input = int(input("Your choice:"))
-        print("\t")
-        if user_input == 1:
-            drivers_menu()
-        elif user_input == 2:
-            cities_menu()
-        elif user_input == 3:
-            print("Exiting System...")
-            running = False
-
+        try:
+            user_input = int(input("Your choice:"))
+            print("\t")
+            if user_input == 1:
+                drivers_menu()
+            elif user_input == 2:
+                cities_menu()
+            elif user_input == 3:
+                print("Exiting System...")
+                running = False
+            else:
+                print("Please choose a number from the system menu")
+        except Exception:
+            print("Please enter a valid number!")
 
 def drivers_menu():
     while True:
@@ -43,25 +47,27 @@ def drivers_menu():
         print("2. To add a driver")
         print("3. To go back to main menu")
         print("\t")
-        user_input_drivers = int(input("Your choice for the drivers menu:"))
-        print("\t")
-        if user_input_drivers == 1:
-            print("---------------------")
-            for i in drivers_list:
-                print(i+", "+drivers_list[i][0]+", "+drivers_list[i][1])
+        try:
+            user_input_drivers = int(input("Your choice for the drivers menu:"))
             print("\t")
-            print("---------------------")    
-        elif user_input_drivers == 2:
-            if len(drivers_list) == 20:
-                print("Can't add anymore!")
+            if user_input_drivers == 1:
+                print("---------------------")
+                for i in drivers_list:
+                    print(i+", "+drivers_list[i][0]+", "+drivers_list[i][1])
+                print("\t")
+                print("---------------------")    
+            elif user_input_drivers == 2:
+                if len(drivers_list) == 20:
+                    print("Can't add anymore!")
+                else:
+                    new_driver()
+                    print(drivers_list)
+            elif user_input_drivers == 3:
+                return
             else:
-                new_driver()
-                print(drivers_list)
-        elif user_input_drivers == 3:
-            return
-        else:
-            print("This input is invalid")
-
+                print("This input is invalid")
+        except Exception:
+            print("Please enter a valid number!")
 
 
 def new_driver():
@@ -102,17 +108,21 @@ def cities_menu():
         print("3. Print drivers delivering to city")
         print("4. Return to main program")
         print("\t")
-        user_input_cities = int(input("Your choice for cities menu:"))
-        print("\t")
-        if user_input_cities == 1:
-            print(Cities_list)
-        elif user_input_cities == 2:
-            print_neighbur_cities()
-        elif user_input_cities == 3:
-            print_drivers_delivering_to_city()
-        elif user_input_cities == 4:
-            return
-
+        try:
+            user_input_cities = int(input("Your choice for cities menu:"))
+            print("\t")
+            if user_input_cities == 1:
+                print(Cities_list)
+            elif user_input_cities == 2:
+                print_neighbur_cities()
+            elif user_input_cities == 3:
+                print_drivers_delivering_to_city()
+            elif user_input_cities == 4:
+                return
+            else:
+                print("Please choose a number from the system menu")
+        except Exception:
+            print("Please enter a valid number!")
 
 
 
