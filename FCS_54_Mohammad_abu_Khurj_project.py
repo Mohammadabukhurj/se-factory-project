@@ -127,12 +127,15 @@ def cities_menu():
 
 
 def print_neighbur_cities():
-    nodes = ["Saida","Zahle","Beirut","Jbeil","Akkar"]
     edges = [("Saida","Zahle"),("Beirut","Jbeil"),("Akkar","Jbeil")]
 
-    graph_cities = Graph(nodes)
+    graph_cities = Graph(Cities_list)
+    print("Empty Graph:")
+    graph_cities.print_list()
+    print("\t")
     for a,b in edges:
         graph_cities.add_edge(a,b)
+    print("Graph with edges")
     graph_cities.print_list()
     return
 
