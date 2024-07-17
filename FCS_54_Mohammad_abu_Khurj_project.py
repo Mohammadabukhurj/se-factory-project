@@ -1,3 +1,5 @@
+from queue import Queue
+
 class Graph:
     def __init__(self,Nodes):
       self.nodes = Nodes
@@ -139,10 +141,67 @@ def print_neighbur_cities():
     graph_cities.print_list()
     return
 
+
+
+
 def print_drivers_delivering_to_city():
-    pass
+    cities_graph = {
+    "Saida":["Zahle"],
+    "Zahle":["Saida"],
+    "Beirut":["Jbeil"],
+    "Jbeil":["Beirut","Akkar"],
+    "Akkar":["Jbeil"]
+    }
+    visited_cities = {}
+
+    node_distance = {}
+
+    node_parent = {}
+
+    bfs_traversal = []
+
+    queue = Queue()
+
+    for node in cities_graph.keys():
+        visited_cities[node] = False
+        node_parent[node] = None
+        node_distance[node] = -1
+
+
+    print(visited_cities)
+    print(node_distance)
+    print(node_parent)
+    input_city_traversal = input("Please Enter the name of the city you want to deliver to so you can see information regarding its traversal and see drivers delivering to it: ")
+    source = input_city_traversal
+    visited_cities[source] = True
+    node_distance[source] = 0
+    node_parent[source] = None
+
+    queue.put(source)
+
+    while not queue.empty():
+        o = queue.get()
+        bfs_traversal.append(o)
+        for v in cities_graph[o]:
+            if visited_cities[v] == False:
+                visited_cities[v] = True
+                node_parent[v] = o
+                node_distance[v] = node_distance[o] + 1
+                queue.put(v)
+
+    print(node_distance)
+    print(node_parent)
+    print(visited_cities)
+    print(bfs_traversal," ",bfs_traversal[-len(bfs_traversal)::-1])
+    for i in bfs_traversal:
+        for j in drivers_list:
+            if drivers_list[j][1] == i:
+                print("Driver delivering to the destined city directly or from another road is " + drivers_list[j][0])
+
+
+
 
 Cities_list = ["Saida","Zahle","Beirut","Jbeil","Akkar"]
 
-drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":[" Lando Norris","Jbiel"]}
+drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":["Lando Norris","Jbiel"]}
 running_program()
