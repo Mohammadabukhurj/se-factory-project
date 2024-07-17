@@ -192,7 +192,7 @@ def print_drivers_delivering_to_city():
     print(node_distance)
     print(node_parent)
     print(visited_cities)
-    print(bfs_traversal," ",bfs_traversal[-len(bfs_traversal)::-1])
+    print(bfs_traversal," ",bfs_traversal[::-1])
     for i in bfs_traversal:
         for j in drivers_list:
             if drivers_list[j][1] == i:
