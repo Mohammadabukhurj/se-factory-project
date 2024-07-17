@@ -176,6 +176,7 @@ def print_drivers_delivering_to_city():
     print("*************************")
     input_city_traversal = input("Please Enter the name of the city you want to deliver to so you can see information regarding its traversal and see drivers delivering to it: ")
     source = input_city_traversal
+    print("\t")
     visited_cities[source] = True
     node_distance[source] = 0
     node_parent[source] = None
@@ -196,6 +197,7 @@ def print_drivers_delivering_to_city():
     print(node_parent)
     print(visited_cities)
     print(bfs_traversal," ",bfs_traversal[::-1])
+    print("\t")
     print("*************************")
     for i in bfs_traversal:
         for j in drivers_list:
