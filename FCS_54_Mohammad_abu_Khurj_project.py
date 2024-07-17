@@ -75,6 +75,7 @@ def drivers_menu():
 def new_driver():
     input_driver_name = input("What is the name of the driver?:")
     input_driver_city = input("What is the start city of the driver?:")
+    print("\t")
     dictionary_size = str(len(drivers_list)+1)
     if (len(Cities_list) <= 15):
         for i in range(len(Cities_list)):
@@ -83,11 +84,12 @@ def new_driver():
                 Cities_list.append(input_driver_city)
                 break
             else:
+                print("\t")
                 print("City already in list")
                 break
-
+        print("\t")
         print(Cities_list)
-
+        print("\t")
         if len(dictionary_size) == 2:
             driver_ID = "ID0"+dictionary_size
         elif len(dictionary_size) == 1:
@@ -167,10 +169,11 @@ def print_drivers_delivering_to_city():
         node_parent[node] = None
         node_distance[node] = -1
 
-
+    print("*******INFORMATION*******")
     print(visited_cities)
     print(node_distance)
     print(node_parent)
+    print("*************************")
     input_city_traversal = input("Please Enter the name of the city you want to deliver to so you can see information regarding its traversal and see drivers delivering to it: ")
     source = input_city_traversal
     visited_cities[source] = True
@@ -188,11 +191,12 @@ def print_drivers_delivering_to_city():
                 node_parent[v] = o
                 node_distance[v] = node_distance[o] + 1
                 queue.put(v)
-
+    print("*******INFORMATION*******")
     print(node_distance)
     print(node_parent)
     print(visited_cities)
     print(bfs_traversal," ",bfs_traversal[::-1])
+    print("*************************")
     for i in bfs_traversal:
         for j in drivers_list:
             if drivers_list[j][1] == i:
@@ -204,4 +208,5 @@ def print_drivers_delivering_to_city():
 Cities_list = ["Saida","Zahle","Beirut","Jbeil","Akkar"]
 
 drivers_list = {"ID001":["Max Verstappen","Akkar"],"ID002":["Charles Leclerc","Saida"],"ID003":["Lando Norris","Jbiel"]}
+
 running_program()
