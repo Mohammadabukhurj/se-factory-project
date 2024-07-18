@@ -186,36 +186,38 @@ def print_drivers_delivering_to_city():
     print(node_distance)
     print(node_parent)
     print("*************************")
-    input_city_traversal = input("Please Enter the name of the city you want to deliver to so you can see information regarding its traversal and see drivers delivering to it: ")
-    source = input_city_traversal
-    print("\t")
-    visited_cities[source] = True
-    node_distance[source] = 0
-    node_parent[source] = None
+    try:
+        input_city_traversal = input("Please Enter the name of the city you want to deliver to so you can see information regarding its traversal and see drivers delivering to it: ")
+        source = input_city_traversal
+        print("\t")
+        visited_cities[source] = True
+        node_distance[source] = 0
+        node_parent[source] = None
 
-    queue.put(source)
+        queue.put(source)
 
-    while not queue.empty():
-        o = queue.get()
-        bfs_traversal.append(o)
-        for v in cities_graph[o]:
-            if visited_cities[v] == False:
-                visited_cities[v] = True
-                node_parent[v] = o
-                node_distance[v] = node_distance[o] + 1
-                queue.put(v)
-    print("*******INFORMATION*******")
-    print(node_distance)
-    print(node_parent)
-    print(visited_cities)
-    print(bfs_traversal," ",bfs_traversal[::-1])
-    print("\t")
-    print("*************************")
-    for i in bfs_traversal:
-        for j in drivers_list:
-            if drivers_list[j][1] == i:
-                print("Driver delivering to the destined city directly or from another road is " + drivers_list[j][0])
-
+        while not queue.empty():
+            o = queue.get()
+            bfs_traversal.append(o)
+            for v in cities_graph[o]:
+                if visited_cities[v] == False:
+                    visited_cities[v] = True
+                    node_parent[v] = o
+                    node_distance[v] = node_distance[o] + 1
+                    queue.put(v)
+        print("*******INFORMATION*******")
+        print(node_distance)
+        print(node_parent)
+        print(visited_cities)
+        print(bfs_traversal," ",bfs_traversal[::-1])
+        print("\t")
+        print("*************************")
+        for i in bfs_traversal:
+            for j in drivers_list:
+                if drivers_list[j][1] == i:
+                    print("Driver delivering to the destined city directly or from another road is " + drivers_list[j][0])
+    except Exception:
+        print("Please enter a valid city that is within the database!")
 
 
 
