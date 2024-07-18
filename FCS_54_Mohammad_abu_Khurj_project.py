@@ -116,7 +116,9 @@ def cities_menu():
             user_input_cities = int(input("Your choice for cities menu:"))
             print("\t")
             if user_input_cities == 1:
-                print(Cities_list)
+                for i in Cities_list:
+                    print(i,end=", ")
+                    print("\t")
             elif user_input_cities == 2:
                 print_neighbur_cities()
             elif user_input_cities == 3:
@@ -147,6 +149,9 @@ def print_neighbur_cities():
 
 
 def print_drivers_delivering_to_city():
+    
+
+
     cities_graph = {
     "Saida":["Zahle"],
     "Zahle":["Saida"],
@@ -154,6 +159,13 @@ def print_drivers_delivering_to_city():
     "Jbeil":["Beirut","Akkar"],
     "Akkar":["Jbeil"]
     }
+
+    for i in range(len(Cities_list)):
+        if Cities_list[i] not in cities_graph:
+            cities_graph[Cities_list[i]] = [] 
+
+    print(cities_graph)
+    
     visited_cities = {}
 
     node_distance = {}
